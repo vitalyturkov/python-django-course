@@ -11,9 +11,11 @@ class SpidrItem(scrapy.Item):
 class spidrSpider(scrapy.Spider):
     name = "spidr"
     allowed_domains = ["hotline.ua"]
-    start_urls = [
-        "http://hotline.ua/mobile/mobilnye-telefony-i-smartfony/"
-    ]
+
+    # lets try to use generator expression here instead of list
+    #start_urls = ["http://hotline.ua/mobile/mobilnye-telefony-i-smartfony/"]
+    start_urls = ( ("http://hotline.ua/mobile/mobilnye-telefony-i-smartfony/?p=" + str(n)) for n in range(88) )
+
 
     def parse(self, response):
         for url in response.xpath("//div[@class='ttle']/a/@href").extract():
