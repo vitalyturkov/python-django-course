@@ -4,5 +4,5 @@ Ok, so It seems there are still some issues, but idk if those are because of my 
 
 to run use: scrapy crawl spidr -o results.json
 
-Achtung! Output json file will contain code representation of cyrillic symbols instead of symbols itself. Use any of those online json viewers/formatters to view and navigate comfortably (there're plenty of, google for it).
+Achtung! Output json file will contain code representation of cyrillic symbols instead of symbols itself. Use any of those online json viewers/formatters to view and navigate comfortably (there're plenty of those, google for it).
 
