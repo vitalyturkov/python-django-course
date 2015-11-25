@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-
-class SpidrItem(scrapy.Item):
-    name = scrapy.Field()
-    brand = scrapy.Field()
-    avgPrice = scrapy.Field()
-    features = scrapy.Field()
-
+import spidr.items
 
 class spidrSpider(scrapy.Spider):
     name = "spidr"
@@ -26,7 +20,7 @@ class spidrSpider(scrapy.Spider):
 
 
     def parse_dir_contents(self, response):
-        item = SpidrItem()
+        item = spidr.items.SpidrItem()
 
         item['name'] = response.xpath("//head/meta[@property='og:title']/@content").extract()[0]
         item['brand'] = response.xpath("//table[@id='full-props-list']//a[@class='g_statistic' and @data-statistic-key='stat36']/text()").extract()[0]
